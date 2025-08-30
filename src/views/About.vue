@@ -1,15 +1,21 @@
 <template>
-  <div class="about">
-    <h1>This is an about page</h1>
+  <div class="home-container">
+    <h1 class="text-4xl font-bold">Satsuki Ohtani</h1>
+    <p class="text-xl mt-2">Bridge SE / Web content writer</p>
+    <p class="mt-4">
+      こんにちは！こちらは私のポートフォリオサイトです。ここで私の作品やキャリアについてご覧いただけます。
+    </p>
   </div>
 </template>
 
-<style>
-@media (min-width: 1024px) {
-  .about {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-  }
+<script>
+export default {
+  name: 'Home',
+};
+</script>
+
+<style scoped>
+.home-container {
+  padding: 20px;
 }
 </style>

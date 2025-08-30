@@ -1,30 +1,23 @@
 <template>
-  <div class="rounded-xl shadow-md p-4 bg-white hover:shadow-lg transition">
-    <img v-if="blog.thumbnail" :src="blog.thumbnail" alt="thumbnail" class="rounded-md mb-2 w-full h-48 object-cover" />
-    <h2 class="text-xl font-semibold mb-2">{{ blog.title }}</h2>
-    <p class="text-gray-600 text-sm mb-2">
-      {{ blog.content.length > 100 ? blog.content.substring(0, 100) + '...' : blog.content }}
-    </p>
-    <p class="text-xs text-gray-400">投稿日: {{ formatDate(blog.createdAt) }}</p>
+  <div
+    class="bg-white rounded-xl shadow-md hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300"
+  >
+    <img
+      :src="thumbnail"
+      :alt="title"
+      class="w-full h-48 object-cover rounded-t-xl"
+    />
+    <div class="p-4">
+      <h3 class="text-xl font-title text-text-primary mb-2">{{ title }}</h3>
+      <p class="text-sm text-text-secondary">{{ description }}</p>
+    </div>
   </div>
 </template>
 
 <script setup>
-import { format } from "date-fns";
-
 defineProps({
-  blog: {
-    type: Object,
-    required: true,
-  },
+  title: String,
+  description: String,
+  thumbnail: String,
 });
-
-const formatDate = (date) => {
-  if (!date) return "";
-  try {
-    return format(date.toDate(), "yyyy/MM/dd");
-  } catch {
-    return "";
-  }
-};
 </script>
