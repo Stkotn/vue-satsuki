@@ -1,36 +1,17 @@
-import { createRouter, createWebHistory } from 'vue-router'
-import HomeView from '../views/Home.vue'
+import { createRouter, createWebHistory } from "vue-router";
+import Blog from "@/views/Blog.vue";
+import About from "@/views/About.vue";
+import Contact from "@/views/Contact.vue";
+
+const routes = [
+  { path: "/", name: "Blog", component: Blog },
+  { path: "/about", name: "About", component: About },
+  { path: "/contact", name: "Contact", component: Contact },
+];
 
 const router = createRouter({
-  history: createWebHistory(import.meta.env.BASE_URL),
-  routes: [
-    {
-      path: '/',
-      name: 'home',
-      component: HomeView,
-    },
-    {
-      path: '/about',
-      name: 'about',
-      component: () => import('../views/About.vue'),
-    },
-    {
-      path: '/blog',
-      name: 'blog',
-      component: () => import('../views/Blog.vue'),
-    },
-    {
-      path: '/blog/:id',
-      name: 'blog-detail',
-      component: () => import('../views/BlogDetail.vue'),
-      props: true,         // ← URLパラメータ(id)を props として受け取れる
-    },
-    {
-      path: '/contact',
-      name: 'contact',
-      component: () => import('../views/Contact.vue'),
-    },
-  ],
-})
+  history: createWebHistory(),
+  routes,
+});
 
-export default router
+export default router;
